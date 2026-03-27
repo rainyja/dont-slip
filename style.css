@@ -4,13 +4,14 @@
 /* 2. Global Reset & Layout */
 * {
   box-sizing: border-box;
-  user-select: none; /* Prevents text highlighting during gameplay */
+  user-select: none; 
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: #b2e2f2;
+  /* Updated background to a softer pool-tile blue */
+  background: #a2d2ff; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +24,13 @@ body {
 #game-wrapper {
   position: relative;
   width: 100%;
-  max-width: 400px; /* Limits size on desktop */
+  max-width: 400px; 
   height: 600px;
+  /* Updated to look more like water/slide surface */
   background: #81ecec;
-  border: 8px solid #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 10px 0 #88c0d0, 0 20px 25px rgba(0,0,0,0.1);
+  border: 10px solid #ffffff;
+  border-radius: 12px; /* Smoother corners for the modern look */
+  box-shadow: 0 15px 0 #63cdda, 0 25px 30px rgba(0,0,0,0.15);
   overflow: hidden;
 }
 
@@ -36,13 +38,15 @@ canvas {
   display: block;
   width: 100%;
   height: 100%;
-  image-rendering: pixelated; /* Keeps your pixel art sharp, not blurry */
+  /* Changed from 'pixelated' to 'auto' to ensure the 
+     new rounded character shapes look smooth, not jagged */
+  image-rendering: auto; 
 }
 
 /* 4. UI Layer - The HUD */
 #ui-layer {
   position: absolute;
-  inset: 0; /* Shortcut for top/bottom/left/right: 0 */
+  inset: 0; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,52 +57,62 @@ canvas {
 
 /* 5. Typography & HUD Elements */
 .pixel-text {
-  color: #ff8fb1;
+  color: #ff7675; /* A slightly warmer pink to pop against the blue */
   text-shadow: 3px 3px 0px #ffffff;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 #score {
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 16px;
+  font-size: 20px;
   color: #ffffff;
-  text-shadow: 2px 2px 0px #636e72;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+  z-index: 20;
 }
 
 /* 6. Interactive Elements */
 .menu {
   pointer-events: auto;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  border-radius: 8px;
-  backdrop-filter: blur(4px); /* Modern glass effect */
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px); 
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 button {
   display: block;
-  width: 180px;
+  width: 200px;
   margin: 15px auto;
-  padding: 12px;
+  padding: 15px;
   font-family: 'Press Start 2P', cursive;
-  font-size: 12px;
-  background: #fab1a0;
+  font-size: 11px;
+  background: #fd79a8; /* Matching the slide edge colors */
   color: #ffffff;
   border: 4px solid #ffffff;
-  border-bottom: 8px solid #e17055; /* 3D effect */
+  border-bottom: 8px solid #e84393; 
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.1s ease;
 }
 
 button:hover {
-  background: #ff7675;
+  background: #e84393;
   transform: translateY(-2px);
 }
 
 button:active {
   transform: translateY(4px);
   border-bottom-width: 4px;
+}
+
+/* 7. Game Over Specific Styling */
+#game-over {
+  display: none; /* Hidden by default, controlled by JS */
+  flex-direction: column;
+  align-items: center;
 }
