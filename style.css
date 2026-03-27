@@ -1,88 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-* {
-  box-sizing: border-box;
-  user-select: none;
-}
-
+* { box-sizing: border-box; user-select: none; }
 body {
-  margin: 0;
-  padding: 0;
-  background: #a2d2ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-  font-family: 'Press Start 2P', cursive;
+  margin: 0; padding: 0; background: #a2d2ff;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh; overflow: hidden; font-family: 'Press Start 2P', cursive;
 }
-
 #game-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 600px;
-  background: #81ecec;
-  border: 10px solid #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 15px 0 #63cdda, 0 25px 30px rgba(0,0,0,0.15);
-  overflow: hidden;
+  position: relative; width: 100%; max-width: 400px; height: 600px;
+  background: #81ecec; border: 10px solid #ffffff; border-radius: 12px;
+  box-shadow: 0 15px 0 #63cdda, 0 25px 30px rgba(0,0,0,0.15); overflow: hidden;
 }
-
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  image-rendering: auto; /* Keeps the character's curves smooth */
-}
-
+canvas { display: block; width: 100%; height: 100%; image-rendering: auto; }
 #ui-layer {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  pointer-events: none; /* Let clicks pass through empty space */
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; z-index: 10; pointer-events: none;
 }
-
-.menu, #game-over, #start-screen {
-  pointer-events: auto; /* Re-enable clicks for buttons */
-  text-align: center;
-}
-
-.pixel-text {
-  color: #ff7675;
-  text-shadow: 3px 3px 0px #ffffff;
-}
-
+.menu, #game-over, #start-screen { pointer-events: auto; text-align: center; }
+.pixel-text { color: #ff7675; text-shadow: 3px 3px 0px #ffffff; }
 #score {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  color: #ffffff;
-  text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+  position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+  font-size: 20px; color: #ffffff; text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
 }
-
 button {
-  display: block;
-  width: 200px;
-  margin: 15px auto;
-  padding: 15px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 11px;
-  background: #fd79a8;
-  color: #ffffff;
-  border: 4px solid #ffffff;
-  border-bottom: 8px solid #e84393;
-  border-radius: 8px;
-  cursor: pointer;
+  display: block; width: 200px; margin: 15px auto; padding: 15px;
+  font-family: 'Press Start 2P', cursive; font-size: 11px;
+  background: #fd79a8; color: #ffffff; border: 4px solid #ffffff;
+  border-bottom: 8px solid #e84393; border-radius: 8px; cursor: pointer;
 }
-
-button:active {
-  transform: translateY(4px);
-  border-bottom-width: 4px;
-}
+button:active { transform: translateY(4px); border-bottom-width: 4px; }
